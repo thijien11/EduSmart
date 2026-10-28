@@ -1,0 +1,3735 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduSmart Portal - AI-Powered Learning Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+    <style>
+        /* ===== CSS VARIABLES ===== */
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --primary-light: #e0e7ff;
+            --secondary: #7209b7;
+            --secondary-light: #f3e8ff;
+            --accent: #4cc9f0;
+            --accent-light: #e0f7fe;
+            --success: #10b981;
+            --success-light: #d1fae5;
+            --warning: #f59e0b;
+            --warning-light: #fef3c7;
+            --danger: #ef4444;
+            --danger-light: #fee2e2;
+            --info: #06b6d4;
+            --info-light: #cffafe;
+            
+            --gradient-primary: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+            --gradient-secondary: linear-gradient(135deg, #7209b7 0%, #3a0ca3 100%);
+            --gradient-accent: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+            --gradient-success: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            --gradient-warning: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            --gradient-danger: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            --gradient-dark: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            --gradient-glass: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+            
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            --bg-card: #ffffff;
+            --bg-glass: rgba(255, 255, 255, 0.7);
+            
+            --text-primary: #1e293b;
+            --text-secondary: #64748b;
+            --text-tertiary: #94a3b8;
+            --text-light: #ffffff;
+            --text-dark: #0f172a;
+            
+            --border-color: #e2e8f0;
+            --border-light: rgba(255, 255, 255, 0.1);
+            --border-dark: rgba(0, 0, 0, 0.1);
+            
+            --radius-sm: 10px;
+            --radius: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --radius-full: 9999px;
+            
+            --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.05), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            --shadow-2xl: 0 50px 100px -20px rgba(0, 0, 0, 0.25);
+            --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+            --shadow-glow: 0 0 20px rgba(67, 97, 238, 0.3);
+            
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 1.5rem;
+            --spacing-lg: 2rem;
+            --spacing-xl: 3rem;
+            --spacing-2xl: 4rem;
+            
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-mono: 'SF Mono', Monaco, 'Cascadia Mono', 'Segoe UI Mono', monospace;
+            
+            --transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 500ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: 400ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            
+            --glass-blur: blur(20px);
+            --glass-border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --bg-tertiary: #334155;
+            --bg-card: #1e293b;
+            --bg-glass: rgba(30, 41, 59, 0.7);
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --text-tertiary: #94a3b8;
+            --border-color: #475569;
+            --border-light: rgba(255, 255, 255, 0.1);
+            --border-dark: rgba(255, 255, 255, 0.05);
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+        }
+
+        /* ===== BASE STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            transition: background-color var(--transition), color var(--transition);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.025em;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        h3 {
+            font-size: 1.75rem;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        section {
+            padding: var(--spacing-2xl) 0;
+            position: relative;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from { 
+                opacity: 0; 
+                transform: translateX(-50px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from { 
+                opacity: 0; 
+                transform: translateX(50px);
+            }
+            to { 
+                opacity: 1; 
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(67, 97, 238, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(67, 97, 238, 0.6); }
+        }
+
+        /* ===== GLASS EFFECT ===== */
+        .glass {
+            background: var(--bg-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: var(--glass-border);
+            border-radius: var(--radius-lg);
+        }
+
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* ===== PAGE CONTAINERS ===== */
+        .page-container {
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .page-container.active {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* ===== ADVANCED HEADER / NAVIGATION BAR ===== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--bg-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: all var(--transition);
+            padding: 0.75rem 0;
+        }
+
+        .header.scrolled {
+            background: var(--bg-card);
+            box-shadow: var(--shadow-lg);
+            padding: 0.5rem 0;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 var(--spacing-md);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            text-decoration: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 1001;
+        }
+
+        .logo-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: var(--shadow-glow);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.75rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-tagline {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--spacing-lg);
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            transition: all var(--transition);
+            position: relative;
+            cursor: pointer;
+            font-size: 0.95rem;
+            border-radius: var(--radius-sm);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+            background: var(--primary-light);
+        }
+
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 1rem;
+            right: 1rem;
+            height: 3px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+        }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .theme-toggle {
+            width: 48px;
+            height: 48px;
+            border-radius: var(--radius);
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary);
+            color: white;
+            transform: rotate(30deg);
+        }
+
+        /* ===== BUTTON STYLES ===== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            border-radius: var(--radius);
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all var(--transition-bounce);
+            border: none;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
+
+        .btn:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-4px) scale(1.05);
+            box-shadow: var(--shadow-xl), var(--shadow-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-success {
+            background: var(--gradient-success);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-success:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-warning {
+            background: var(--gradient-warning);
+            color: white;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn-warning:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .btn-glass {
+            background: var(--bg-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: var(--glass-border);
+            color: var(--text-primary);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-glass:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .btn-sm {
+            padding: 0.75rem 1.5rem;
+            font-size: 0.875rem;
+        }
+
+        .btn-lg {
+            padding: 1.25rem 2.5rem;
+            font-size: 1.125rem;
+        }
+
+        .btn-icon {
+            padding: 1rem;
+            width: 48px;
+            height: 48px;
+        }
+
+        .btn-shimmer {
+            background: linear-gradient(90deg, var(--primary) 0%, var(--secondary) 50%, var(--primary) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite linear;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            padding: 12rem 0 8rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        [data-theme="dark"] .hero {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(67, 97, 238, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(114, 9, 183, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(76, 201, 240, 0.1) 0%, transparent 50%);
+            animation: gradient 15s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-2xl);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            margin-bottom: var(--spacing-md);
+            line-height: 1.1;
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--spacing-xl);
+            max-width: 600px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: var(--spacing-xl);
+            margin-top: var(--spacing-xl);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .hero-visual {
+            position: relative;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .hero-visual img {
+            width: 100%;
+            border-radius: var(--radius-xl);
+            box-shadow: var(--shadow-2xl);
+            transform: perspective(1000px) rotateY(-10deg) rotateX(5deg);
+            transition: transform var(--transition);
+        }
+
+        .hero-visual img:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
+        }
+
+        .floating-element {
+            position: absolute;
+            background: var(--bg-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-md);
+            box-shadow: var(--shadow-xl);
+            animation: float 6s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .floating-element:nth-child(1) {
+            top: -20px;
+            left: -20px;
+            width: 120px;
+            animation-delay: 0s;
+        }
+
+        .floating-element:nth-child(2) {
+            bottom: 40px;
+            right: -30px;
+            width: 140px;
+            animation-delay: 2s;
+        }
+
+        .floating-element:nth-child(3) {
+            top: 50%;
+            right: 20px;
+            width: 100px;
+            animation-delay: 4s;
+        }
+
+        /* ===== FEATURES SECTION ===== */
+        .features {
+            background: var(--bg-secondary);
+            position: relative;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: var(--spacing-2xl);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: var(--spacing-sm);
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-full);
+        }
+
+        .section-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: var(--spacing-xl);
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            transition: all var(--transition-bounce);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-2xl);
+            border-color: var(--primary);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+            opacity: 0;
+            transition: opacity var(--transition);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--bg-tertiary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: var(--spacing-lg);
+            color: var(--primary);
+            font-size: 2rem;
+            transition: all var(--transition);
+        }
+
+        .feature-card:hover .feature-icon {
+            background: var(--gradient-primary);
+            color: white;
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .feature-tags {
+            display: flex;
+            gap: var(--spacing-sm);
+            flex-wrap: wrap;
+            margin-top: var(--spacing-md);
+        }
+
+        .feature-tag {
+            padding: 0.25rem 0.75rem;
+            background: var(--primary-light);
+            color: var(--primary);
+            border-radius: var(--radius-full);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* ===== LOGIN PAGE STYLES ===== */
+        .login-container {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-xl) var(--spacing-md);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255,255,255,0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255,255,255,0.1) 0%, transparent 50%);
+            animation: gradient 15s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        .login-wrapper {
+            display: flex;
+            max-width: 1200px;
+            width: 100%;
+            background: var(--bg-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-2xl);
+            animation: fadeIn 0.8s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .login-left {
+            flex: 1;
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.9), rgba(114, 9, 183, 0.9));
+            color: white;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-left::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .login-left::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .login-logo-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 60px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .login-logo {
+            width: 80px;
+            height: 80px;
+            background: white;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 36px;
+            font-weight: bold;
+            box-shadow: var(--shadow-xl);
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .login-logo-text {
+            font-size: 36px;
+            font-weight: 800;
+        }
+
+        .login-welcome-text {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 30px;
+            line-height: 1.2;
+            z-index: 1;
+            position: relative;
+        }
+
+        .login-welcome-subtext {
+            font-size: 18px;
+            opacity: 0.9;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            z-index: 1;
+            position: relative;
+        }
+
+        .login-features-list {
+            list-style: none;
+            z-index: 1;
+            position: relative;
+        }
+
+        .login-features-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .login-features-list i {
+            color: var(--accent);
+            font-size: 20px;
+            width: 24px;
+        }
+
+        .login-right {
+            flex: 1;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--bg-glass);
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .login-header h2 {
+            color: var(--text-primary);
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .login-header p {
+            color: var(--text-secondary);
+            font-size: 16px;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .required::after {
+            content: '*';
+            color: var(--danger);
+            margin-left: 4px;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 18px 24px;
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius);
+            font-size: 16px;
+            transition: var(--transition);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.1);
+        }
+
+        .form-input.error {
+            border-color: var(--danger);
+        }
+
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 48px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 20px;
+            transition: color var(--transition);
+        }
+
+        .password-toggle:hover {
+            color: var(--primary);
+        }
+
+        .error-message {
+            color: var(--danger);
+            font-size: 14px;
+            margin-top: 8px;
+            display: none;
+            font-weight: 500;
+        }
+
+        .error-message.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .login-form-btn {
+            width: 100%;
+            padding: 20px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition-bounce);
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: var(--shadow-lg);
+        }
+
+        .login-form-btn:hover {
+            background: var(--gradient-secondary);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .login-form-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        .login-footer a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: color var(--transition);
+        }
+
+        .login-footer a:hover {
+            color: var(--secondary);
+            text-decoration: underline;
+        }
+
+        .loader {
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        /* ===== ADVANCED MODAL STYLES ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            animation: fadeIn 0.3s ease;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .modal-content {
+            background: var(--bg-glass);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-2xl);
+            max-width: 600px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideInRight 0.4s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-2xl);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--spacing-xl);
+            padding-bottom: var(--spacing-md);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-header h3 {
+            font-size: 28px;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 28px;
+            cursor: pointer;
+            transition: color var(--transition);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--radius);
+        }
+
+        .modal-close:hover {
+            color: var(--danger);
+            background: var(--danger-light);
+        }
+
+        /* ===== SIGNUP OPTIONS MODAL ===== */
+        .signup-option-card {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+            padding: var(--spacing-xl);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-lg);
+            cursor: pointer;
+            transition: all var(--transition-bounce);
+            position: relative;
+            overflow: hidden;
+            background: var(--bg-card);
+        }
+        
+        .signup-option-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .signup-option-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            flex-shrink: 0;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .signup-option-content {
+            flex: 1;
+        }
+        
+        .signup-option-content h5 {
+            margin: 0 0 8px 0;
+            color: var(--text-primary);
+            font-size: 20px;
+            font-weight: 700;
+        }
+        
+        .signup-option-content p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.5;
+        }
+        
+        .signup-note {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--gradient-warning);
+            color: white;
+            border-radius: var(--radius-full);
+            font-size: 12px;
+            font-weight: 700;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .signup-option-action {
+            color: var(--primary);
+            font-size: 24px;
+            opacity: 0.7;
+            transition: opacity var(--transition);
+        }
+        
+        .signup-option-card:hover .signup-option-action {
+            opacity: 1;
+            transform: translateX(5px);
+        }
+
+        /* ===== TEACHER REQUEST FORM ===== */
+        .form-hint {
+            display: block;
+            margin-top: 8px;
+            color: var(--text-tertiary);
+            font-size: 13px;
+            line-height: 1.5;
+            font-style: italic;
+        }
+
+        .teacher-request-info {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(217, 119, 6, 0.1));
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--warning);
+            margin-bottom: var(--spacing-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .teacher-request-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23f59e0b' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+            opacity: 0.3;
+        }
+
+        .student-registration-info {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.1), rgba(58, 12, 163, 0.1));
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            border-left: 4px solid var(--primary);
+            margin-bottom: var(--spacing-xl);
+        }
+
+        /* ===== FOOTER STYLES ===== */
+        .footer {
+            background: var(--gradient-dark);
+            color: white;
+            padding: var(--spacing-2xl) 0 var(--spacing-xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(67, 97, 238, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(114, 9, 183, 0.1) 0%, transparent 50%);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-2xl);
+            margin-bottom: var(--spacing-2xl);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-column h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+            color: white;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all var(--transition);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(5px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: var(--spacing-sm);
+            margin-top: var(--spacing-lg);
+        }
+
+        .social-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: var(--radius);
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all var(--transition);
+        }
+
+        .social-icon:hover {
+            background: var(--primary);
+            transform: translateY(-3px) rotate(5deg);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .footer-bottom {
+            padding-top: var(--spacing-xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.875rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ===== NOTIFICATION TOAST ===== */
+        .notification-toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            padding: 18px 28px;
+            background: var(--bg-card);
+            color: var(--text-primary);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-2xl);
+            z-index: 2001;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+            min-width: 300px;
+            max-width: 500px;
+            opacity: 0;
+            transition: all var(--transition-bounce);
+            border-left: 4px solid var(--primary);
+        }
+
+        .notification-toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        .notification-toast.success {
+            border-left-color: var(--success);
+            background: var(--success-light);
+            color: var(--text-dark);
+        }
+
+        .notification-toast.error {
+            border-left-color: var(--danger);
+            background: var(--danger-light);
+            color: var(--text-dark);
+        }
+
+        .notification-toast.warning {
+            border-left-color: var(--warning);
+            background: var(--warning-light);
+            color: var(--text-dark);
+        }
+
+        .notification-toast.info {
+            border-left-color: var(--info);
+            background: var(--info-light);
+            color: var(--text-dark);
+        }
+
+        .notification-icon {
+            font-size: 20px;
+        }
+
+        /* ===== ENHANCED DEMO LOGIN SECTION ===== */
+        .demo-login-section {
+            background: linear-gradient(135deg, rgba(67, 97, 238, 0.05), rgba(114, 9, 183, 0.05));
+            border-radius: var(--radius-xl);
+            padding: var(--spacing-xl);
+            margin: var(--spacing-xl) 0;
+            border: 2px solid var(--border-color);
+        }
+
+        .demo-login-title {
+            text-align: center;
+            margin-bottom: var(--spacing-lg);
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .demo-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius);
+            background: var(--bg-card);
+            border: 2px solid var(--border-color);
+            transition: all var(--transition-bounce);
+            cursor: pointer;
+            text-align: center;
+            gap: var(--spacing-sm);
+        }
+
+        .demo-button:hover {
+            transform: translateY(-5px) scale(1.03);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .demo-button.student-primary {
+            border-top: 4px solid #10b981;
+        }
+
+        .demo-button.student-secondary {
+            border-top: 4px solid #4361ee;
+        }
+
+        .demo-button.student-university {
+            border-top: 4px solid #7209b7;
+        }
+
+        .demo-button.teacher {
+            border-top: 4px solid #f59e0b;
+        }
+
+        .demo-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .demo-button.student-primary .demo-icon {
+            color: #10b981;
+        }
+
+        .demo-button.student-secondary .demo-icon {
+            color: #4361ee;
+        }
+
+        .demo-button.student-university .demo-icon {
+            color: #7209b7;
+        }
+
+        .demo-button.teacher .demo-icon {
+            color: #f59e0b;
+        }
+
+        .demo-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 1rem;
+        }
+
+        .demo-description {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .demo-admin-tools {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.05), rgba(220, 38, 38, 0.05));
+            border-radius: var(--radius);
+            padding: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        /* ===== ENHANCED EDUCATION LEVEL SELECTION ===== */
+        .education-level-selector {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: var(--spacing-md);
+            margin: var(--spacing-md) 0;
+        }
+
+        .education-level-option {
+            padding: var(--spacing-lg);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius);
+            cursor: pointer;
+            transition: all var(--transition-bounce);
+            text-align: center;
+            background: var(--bg-card);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+
+        .education-level-option:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow);
+        }
+
+        .education-level-option.selected {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .education-level-option .level-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .education-level-option.primary .level-icon {
+            color: #10b981;
+        }
+
+        .education-level-option.secondary .level-icon {
+            color: #4361ee;
+        }
+
+        .education-level-option.university .level-icon {
+            color: #7209b7;
+        }
+
+        .education-level-option .level-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            font-size: 1.1rem;
+        }
+
+        .education-level-option .level-desc {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .course-selection {
+            margin-top: var(--spacing-md);
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1200px) {
+            .hero-text h1 {
+                font-size: 3rem;
+            }
+            
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .login-wrapper {
+                max-width: 900px;
+            }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: var(--spacing-xl);
+            }
+            
+            .hero-text p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .hero-stats {
+                justify-content: center;
+            }
+            
+            .login-wrapper {
+                flex-direction: column;
+                max-width: 600px;
+            }
+            
+            .login-left, .login-right {
+                padding: 60px 40px;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .education-level-selector {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .demo-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: var(--spacing-lg);
+            }
+            
+            .login-left, .login-right {
+                padding: 40px 30px;
+            }
+            
+            .login-welcome-text {
+                font-size: 36px;
+            }
+            
+            .login-logo-text {
+                font-size: 28px;
+            }
+            
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .education-level-selector {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .login-left, .login-right {
+                padding: 30px 20px;
+            }
+            
+            .login-welcome-text {
+                font-size: 28px;
+            }
+            
+            .login-logo-text {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER / NAVIGATION BAR -->
+    <header class="header" id="mainHeader">
+        <div class="container nav-container">
+            <a class="logo" onclick="showPage('home')">
+                <div class="logo-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <div class="logo-text">EduSmart</div>
+                    <div class="logo-tagline">AI-Powered Learning</div>
+                </div>
+            </a>
+            
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a onclick="showPage('home')" class="active">Home</a></li>
+                    <li><a onclick="scrollToSection('features')">Features</a></li>
+                    <li><a onclick="showPage('login')">Login</a></li>
+                    <li><a onclick="showSignupOptions()">Sign Up</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <button class="theme-toggle" onclick="toggleTheme()">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                    
+                    <!-- Login Button -->
+                    <button class="btn btn-primary btn-sm" id="navLoginBtn" onclick="showPage('login')">
+                        <i class="fas fa-sign-in-alt"></i>
+                        Login
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- HOMEPAGE CONTENT -->
+    <div id="homePage" class="page-container active">
+        <!-- HERO SECTION -->
+        <section class="hero" id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h1>Transform Learning with AI-Powered Education</h1>
+                        <p>Experience personalized learning paths, intelligent tutoring, and comprehensive resources tailored for African students across all education levels.</p>
+                        <div style="display: flex; gap: var(--spacing-md); margin-bottom: var(--spacing-xl); flex-wrap: wrap;">
+                            <button class="btn btn-primary btn-lg" onclick="showPage('login')">
+                                <i class="fas fa-rocket"></i>
+                                Start Learning Free
+                            </button>
+                            <button class="btn btn-secondary btn-lg" onclick="showSignupOptions()">
+                                <i class="fas fa-user-plus"></i>
+                                Create Account
+                            </button>
+                        </div>
+                        
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <div class="stat-number">10K+</div>
+                                <div class="stat-label">Active Students</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Verified Teachers</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">98%</div>
+                                <div class="stat-label">Success Rate</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="hero-visual">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Students learning with technology">
+                        
+                        <!-- Floating elements -->
+                        <div class="floating-element glass">
+                            <div style="text-align: center;">
+                                <i class="fas fa-robot" style="color: var(--primary); font-size: 24px; margin-bottom: 8px;"></i>
+                                <div style="font-weight: 700; color: var(--text-primary);">AI Tutor</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">24/7 Assistance</div>
+                            </div>
+                        </div>
+                        
+                        <div class="floating-element glass">
+                            <div style="text-align: center;">
+                                <i class="fas fa-chart-line" style="color: var(--success); font-size: 24px; margin-bottom: 8px;"></i>
+                                <div style="font-weight: 700; color: var(--text-primary);">Progress</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">Track & Improve</div>
+                            </div>
+                        </div>
+                        
+                        <div class="floating-element glass">
+                            <div style="text-align: center;">
+                                <i class="fas fa-trophy" style="color: var(--warning); font-size: 24px; margin-bottom: 8px;"></i>
+                                <div style="font-weight: 700; color: var(--text-primary);">Achievements</div>
+                                <div style="font-size: 12px; color: var(--text-secondary);">Earn Rewards</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FEATURES SECTION -->
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Why Choose EduSmart?</h2>
+                    <p class="section-subtitle">Experience the future of education with our AI-powered platform</p>
+                </div>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>Intelligent AI Tutor</h3>
+                        <p>Get personalized explanations, step-by-step solutions, and 24/7 assistance from our advanced AI learning assistant.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">24/7 Available</span>
+                            <span class="feature-tag">Step-by-Step</span>
+                            <span class="feature-tag">Multi-Subject</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-network"></i>
+                        </div>
+                        <h3>Adaptive Learning Path</h3>
+                        <p>Dynamic curriculum that adapts to your learning pace, strengths, and weaknesses for optimal knowledge retention.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Personalized</span>
+                            <span class="feature-tag">Adaptive</span>
+                            <span class="feature-tag">Optimized</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-check"></i>
+                        </div>
+                        <h3>Secure Teacher Verification</h3>
+                        <p>Advanced security system ensures only verified educators can access teacher accounts with admin approval.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Verified</span>
+                            <span class="feature-tag">Secure</span>
+                            <span class="feature-tag">Approved</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Multi-Curriculum Support</h3>
+                        <p>Comprehensive resources for Kenyan, Ugandan, Tanzanian, Rwandan, and South Sudanese education systems.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Kenya</span>
+                            <span class="feature-tag">Uganda</span>
+                            <span class="feature-tag">Tanzania</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <h3>Interactive Video Lessons</h3>
+                        <p>Engaging video tutorials with interactive quizzes, AI-generated summaries, and progress tracking.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Interactive</span>
+                            <span class="feature-tag">Engaging</span>
+                            <span class="feature-tag">Trackable</span>
+                        </div>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Gamified Learning</h3>
+                        <p>Earn points, badges, and rewards as you progress. Compete with peers and track your achievements.</p>
+                        <div class="feature-tags">
+                            <span class="feature-tag">Points</span>
+                            <span class="feature-tag">Badges</span>
+                            <span class="feature-tag">Rewards</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer" id="contact">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-column">
+                        <h3>EduSmart Portal</h3>
+                        <p style="color: rgba(255, 255, 255, 0.8); margin-bottom: var(--spacing-md); line-height: 1.6;">
+                            Revolutionizing education through AI-powered personalized learning for African students.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a href="#" class="social-icon">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a onclick="showPage('home')"><i class="fas fa-home"></i> Home</a></li>
+                            <li><a onclick="scrollToSection('features')"><i class="fas fa-star"></i> Features</a></li>
+                            <li><a onclick="showPage('login')"><i class="fas fa-sign-in-alt"></i> Login</a></li>
+                            <li><a onclick="showSignupOptions()"><i class="fas fa-user-plus"></i> Sign Up</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Resources</h3>
+                        <ul class="footer-links">
+                            <li><a onclick="showPage('login')"><i class="fas fa-book"></i> Learning Materials</a></li>
+                            <li><a onclick="showPage('login')"><i class="fas fa-video"></i> Video Tutorials</a></li>
+                            <li><a onclick="showPage('login')"><i class="fas fa-file-alt"></i> Past Papers</a></li>
+                            <li><a onclick="showPage('login')"><i class="fas fa-question-circle"></i> AI Tutor</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Contact & Support</h3>
+                        <ul class="footer-links">
+                            <li><a href="mailto:support@edusmart.com"><i class="fas fa-envelope"></i> support@edusmart.com</a></li>
+                            <li><a href="tel:+254700123456"><i class="fas fa-phone"></i> +254 700 123 456</a></li>
+                            <li><a><i class="fas fa-question-circle"></i> Help Center</a></li>
+                            <li><a><i class="fas fa-file-contract"></i> Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="footer-bottom">
+                    <p>&copy; 2024 EduSmart Portal. All rights reserved. | Revolutionizing Education Through AI</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- LOGIN PAGE -->
+    <div id="loginPage" class="page-container">
+        <div class="login-container">
+            <div class="login-wrapper">
+                <!-- Left Side: Welcome & Info -->
+                <div class="login-left">
+                    <div class="login-logo-container">
+                        <div class="login-logo">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="login-logo-text">EduSmart</div>
+                    </div>
+                    
+                    <h1 class="login-welcome-text">Welcome Back<br>to EduSmart</h1>
+                    <p class="login-welcome-subtext">
+                        Access your personalized learning dashboard, continue your progress, and connect with your educational community.
+                    </p>
+                    
+                    <ul class="login-features-list">
+                        <li><i class="fas fa-shield-alt"></i> Enterprise-grade security</li>
+                        <li><i class="fas fa-bolt"></i> Instant access to resources</li>
+                        <li><i class="fas fa-chart-line"></i> Real-time progress tracking</li>
+                        <li><i class="fas fa-robot"></i> AI-powered learning assistant</li>
+                    </ul>
+                </div>
+                
+                <!-- Right Side: Login Form -->
+                <div class="login-right">
+                    <div class="login-header">
+                        <h2>Sign In to Continue</h2>
+                        <p>Enter your credentials to access your personalized dashboard</p>
+                    </div>
+                    
+                    <form id="loginForm">
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label for="username" class="form-label">
+                                <i class="fas fa-envelope"></i>
+                                Email Address
+                                <span class="required"></span>
+                            </label>
+                            <input 
+                                type="text" 
+                                id="username" 
+                                class="form-input" 
+                                placeholder="student@email.com or teacher@school.edu"
+                                autocomplete="username"
+                            >
+                            <div class="error-message" id="usernameError">
+                                Please enter a valid email address
+                            </div>
+                        </div>
+                        
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label for="password" class="form-label">
+                                <i class="fas fa-lock"></i>
+                                Password
+                                <span class="required"></span>
+                            </label>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                class="form-input" 
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                            >
+                            <button type="button" class="password-toggle" id="togglePassword">
+                                <i class="far fa-eye"></i>
+                            </button>
+                            <div class="error-message" id="passwordError">
+                                Password must be at least 8 characters long
+                            </div>
+                        </div>
+                        
+                        <!-- User Role -->
+                        <div class="form-group">
+                            <label for="userRole" class="form-label">
+                                <i class="fas fa-user-tag"></i>
+                                User Role
+                                <span class="required"></span>
+                            </label>
+                            <select id="userRole" class="form-input">
+                                <option value="">Select your role</option>
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher/Lecturer</option>
+                            </select>
+                            <div class="error-message" id="roleError">
+                                Please select your user role
+                            </div>
+                        </div>
+                        
+                        <!-- Demo Login Section -->
+                        <div class="demo-login-section">
+                            <h3 class="demo-login-title">
+                                <i class="fas fa-flask"></i>
+                                Try Demo Accounts
+                            </h3>
+                            
+                            <div class="demo-grid">
+                                <div class="demo-button student-primary" onclick="demoStudentLogin('primary')">
+                                    <div class="demo-icon">
+                                        <i class="fas fa-child"></i>
+                                    </div>
+                                    <div class="demo-label">Primary Student</div>
+                                    <div class="demo-description">Primary 8 Level</div>
+                                </div>
+                                
+                                <div class="demo-button student-secondary" onclick="demoStudentLogin('secondary')">
+                                    <div class="demo-icon">
+                                        <i class="fas fa-user-graduate"></i>
+                                    </div>
+                                    <div class="demo-label">Secondary Student</div>
+                                    <div class="demo-description">Secondary Level</div>
+                                </div>
+                                
+                                <div class="demo-button student-university" onclick="demoStudentLogin('university')">
+                                    <div class="demo-icon">
+                                        <i class="fas fa-university"></i>
+                                    </div>
+                                    <div class="demo-label">University Student</div>
+                                    <div class="demo-description">Bachelor's Degree</div>
+                                </div>
+                                
+                                <div class="demo-button teacher" onclick="demoLogin('teacher')">
+                                    <div class="demo-icon">
+                                        <i class="fas fa-chalkboard-teacher"></i>
+                                    </div>
+                                    <div class="demo-label">Teacher</div>
+                                    <div class="demo-description">Educator Account</div>
+                                </div>
+                            </div>
+                            
+                            <!-- Teacher Approval Button -->
+                            <div class="demo-admin-tools" style="background: linear-gradient(135deg, rgba(245, 158, 11, 0.05), rgba(217, 119, 6, 0.05)); border-color: rgba(245, 158, 11, 0.2);">
+                                <div style="display: flex; gap: var(--spacing-sm); flex-wrap: wrap;">
+                                    <button type="button" class="btn btn-warning btn-sm" onclick="simulateAdminApproval()" style="flex: 1;">
+                                        <i class="fas fa-check-circle"></i>
+                                        Approve Teacher Request
+                                    </button>
+                                    <button type="button" class="btn btn-secondary btn-sm" onclick="showAdminPanel()" style="flex: 1;">
+                                        <i class="fas fa-user-shield"></i>
+                                        View Admin Panel
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Submit Button -->
+                        <button type="submit" class="login-form-btn" id="submitBtn">
+                            <i class="fas fa-sign-in-alt"></i>
+                            <span>Sign In</span>
+                            <div class="loader" id="submitLoader"></div>
+                        </button>
+                        
+                        <div class="login-footer">
+                            <p>
+                                New to EduSmart? 
+                                <a onclick="showSignupOptions()">Create an account</a>
+                            </p>
+                            <p style="margin-top: 15px;">
+                                <a onclick="showForgotPassword()">
+                                    <i class="fas fa-key"></i> Forgot your password?
+                                </a>
+                            </p>
+                            <p style="margin-top: 15px;">
+                                <a onclick="showPage('home')">
+                                    <i class="fas fa-arrow-left"></i> Back to Home
+                                </a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SIGNUP OPTIONS MODAL -->
+    <div id="signupOptionsModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Join EduSmart</h3>
+                <button class="modal-close" onclick="closeSignupModal()">×</button>
+            </div>
+            
+            <div style="margin-bottom: var(--spacing-lg);">
+                <p style="color: var(--text-secondary); margin-bottom: var(--spacing-xl); text-align: center;">
+                    Choose your account type to get started with personalized learning
+                </p>
+                
+                <!-- Student Registration Option -->
+                <div class="signup-option-card" onclick="showStudentRegistration()">
+                    <div class="signup-option-icon" style="background: var(--gradient-primary);">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="signup-option-content">
+                        <h5>Student Account</h5>
+                        <p>Self-register and get instant access to learning materials, AI tutor, and progress tracking.</p>
+                        <span class="signup-note">Instant Access</span>
+                    </div>
+                    <div class="signup-option-action">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Teacher/Lecturer Registration Option -->
+                <div class="signup-option-card" onclick="showTeacherRequestForm()">
+                    <div class="signup-option-icon" style="background: var(--gradient-warning);">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <div class="signup-option-content">
+                        <h5>Teacher/Lecturer Account</h5>
+                        <p>Request access with institutional verification. Admin approval required for security.</p>
+                        <span class="signup-note">Verification Required</span>
+                    </div>
+                    <div class="signup-option-action">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+                
+                <!-- Admin Note -->
+                <div style="background: rgba(67, 97, 238, 0.1); padding: var(--spacing-md); border-radius: var(--radius); margin-top: var(--spacing-lg); border-left: 3px solid var(--primary);">
+                    <p style="color: var(--text-secondary); font-size: 0.875rem; margin: 0; display: flex; align-items: flex-start; gap: var(--spacing-sm);">
+                        <i class="fas fa-info-circle" style="color: var(--primary); margin-top: 2px;"></i>
+                        Admin accounts are created manually by system administrators to ensure platform security and integrity.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- STUDENT REGISTRATION MODAL - UPDATED WITH EDUCATION LEVEL -->
+    <div id="studentRegistrationModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content" style="max-width: 700px;">
+            <div class="modal-header">
+                <h3>Student Registration</h3>
+                <button class="modal-close" onclick="closeStudentRegistrationModal()">×</button>
+            </div>
+            
+            <div style="margin-bottom: var(--spacing-md);">
+                <div class="student-registration-info">
+                    <h4 style="color: var(--primary); margin: 0 0 var(--spacing-sm) 0; display: flex; align-items: center; gap: var(--spacing-sm);">
+                        <i class="fas fa-rocket"></i>
+                        Instant Access
+                    </h4>
+                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">
+                        Students can register instantly and start learning immediately! No approval required.
+                    </p>
+                </div>
+                
+                <form id="studentRegistrationForm">
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
+                        <!-- Full Name -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-user"></i>
+                                Full Name
+                                <span class="required"></span>
+                            </label>
+                            <input type="text" id="studentName" class="form-input" 
+                                   placeholder="Your full name">
+                        </div>
+                        
+                        <!-- Email -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-envelope"></i>
+                                Email Address
+                                <span class="required"></span>
+                            </label>
+                            <input type="email" id="studentEmail" class="form-input" 
+                                   placeholder="student@email.com">
+                        </div>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
+                        <!-- Password -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-lock"></i>
+                                Password
+                                <span class="required"></span>
+                            </label>
+                            <input type="password" id="studentPassword" class="form-input" 
+                                   placeholder="Minimum 8 characters">
+                        </div>
+                        
+                        <!-- Country -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-globe-africa"></i>
+                                Country
+                                <span class="required"></span>
+                            </label>
+                            <select id="country" class="form-input">
+                                <option value="">Select Country</option>
+                                <option value="KE">Kenya</option>
+                                <option value="UG">Uganda</option>
+                                <option value="TZ">Tanzania</option>
+                                <option value="RW">Rwanda</option>
+                                <option value="SS">South Sudan</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Education Level Selection -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-graduation-cap"></i>
+                            Education Level
+                            <span class="required"></span>
+                        </label>
+                        <div class="education-level-selector">
+                            <div class="education-level-option primary" onclick="selectEducationLevel('primary', this)">
+                                <div class="level-icon">
+                                    <i class="fas fa-child"></i>
+                                </div>
+                                <div class="level-name">Primary 8</div>
+                                <div class="level-desc">Primary School Education</div>
+                            </div>
+                            
+                            <div class="education-level-option secondary" onclick="selectEducationLevel('secondary', this)">
+                                <div class="level-icon">
+                                    <i class="fas fa-user-graduate"></i>
+                                </div>
+                                <div class="level-name">Secondary</div>
+                                <div class="level-desc">Secondary School Education</div>
+                            </div>
+                            
+                            <div class="education-level-option university" onclick="selectEducationLevel('university', this)">
+                                <div class="level-icon">
+                                    <i class="fas fa-university"></i>
+                                </div>
+                                <div class="level-name">University</div>
+                                <div class="level-desc">Higher Education</div>
+                            </div>
+                        </div>
+                        <input type="hidden" id="educationLevel" value="">
+                        <div class="error-message" id="educationLevelError">
+                            Please select your education level
+                        </div>
+                    </div>
+                    
+                    <!-- Grade Selection (For Primary only) -->
+                    <div id="gradeSelection" class="course-selection" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-sort-numeric-up"></i>
+                                Grade Level
+                                <span class="required"></span>
+                            </label>
+                            <select id="gradeLevel" class="form-input">
+                                <option value="">Select Grade</option>
+                                <option value="grade-1">Grade 1</option>
+                                <option value="grade-2">Grade 2</option>
+                                <option value="grade-3">Grade 3</option>
+                                <option value="grade-4">Grade 4</option>
+                                <option value="grade-5">Grade 5</option>
+                                <option value="grade-6">Grade 6</option>
+                                <option value="grade-7">Grade 7</option>
+                                <option value="grade-8">Grade 8</option>
+                            </select>
+                            <div class="error-message" id="gradeLevelError">
+                                Please select your grade level
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Course Selection (For University) -->
+                    <div id="courseSelection" class="course-selection" style="display: none;">
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-book"></i>
+                                Course/Program
+                                <span class="required"></span>
+                            </label>
+                            <select id="universityCourse" class="form-input">
+                                <option value="">Select Course</option>
+                                <option value="computer-science">Computer Science</option>
+                                <option value="engineering">Engineering</option>
+                                <option value="medicine">Medicine</option>
+                                <option value="law">Law</option>
+                                <option value="business">Business Administration</option>
+                                <option value="education">Education</option>
+                                <option value="agriculture">Agriculture</option>
+                                <option value="architecture">Architecture</option>
+                                <option value="nursing">Nursing</option>
+                                <option value="pharmacy">Pharmacy</option>
+                            </select>
+                            <div class="error-message" id="courseError">
+                                Please select your course/program
+                            </div>
+                        </div>
+                        
+                        <!-- Year of Study (For University) -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-calendar-alt"></i>
+                                Year of Study
+                                <span class="required"></span>
+                            </label>
+                            <select id="yearOfStudy" class="form-input">
+                                <option value="">Select Year</option>
+                                <option value="1">Year 1</option>
+                                <option value="2">Year 2</option>
+                                <option value="3">Year 3</option>
+                                <option value="4">Year 4</option>
+                                <option value="5">Year 5</option>
+                                <option value="6">Year 6</option>
+                            </select>
+                            <div class="error-message" id="yearError">
+                                Please select your year of study
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Terms -->
+                    <div class="form-group">
+                        <label style="display: flex; align-items: flex-start; gap: var(--spacing-sm); cursor: pointer; padding: var(--spacing-sm); background: var(--bg-tertiary); border-radius: var(--radius);">
+                            <input type="checkbox" id="studentTerms" style="margin-top: 3px; flex-shrink: 0;">
+                            <span style="font-size: 0.9rem; color: var(--text-secondary);">
+                                I agree to the <a style="color: var(--primary);">Terms of Service</a> and <a style="color: var(--primary);">Privacy Policy</a>
+                            </span>
+                        </label>
+                        <div class="error-message" id="studentTermsError">
+                            You must agree to the terms
+                        </div>
+                    </div>
+                    
+                    <!-- Submit -->
+                    <div style="display: flex; gap: var(--spacing-md); margin-top: var(--spacing-xl);">
+                        <button type="button" class="btn btn-secondary" onclick="closeStudentRegistrationModal()" style="flex: 1;">
+                            <i class="fas fa-times"></i>
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary" style="flex: 2;">
+                            <i class="fas fa-user-plus"></i>
+                            Create Student Account
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- TEACHER/LECTURER REQUEST FORM MODAL -->
+    <div id="teacherRequestModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content" style="max-width: 700px;">
+            <div class="modal-header">
+                <h3>Teacher Account Request</h3>
+                <button class="modal-close" onclick="closeTeacherRequestModal()">×</button>
+            </div>
+            
+            <div style="margin-bottom: var(--spacing-md);">
+                <div class="teacher-request-info">
+                    <h4 style="color: var(--warning); margin: 0 0 var(--spacing-sm) 0; display: flex; align-items: center; gap: var(--spacing-sm);">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Verification Required
+                    </h4>
+                    <p style="color: var(--text-secondary); margin: 0; font-size: 0.95rem;">
+                        Teacher/Lecturer accounts require institutional verification and admin approval. 
+                        You'll receive email notification once your account is approved.
+                    </p>
+                </div>
+                
+                <form id="teacherRequestForm">
+                    <!-- Institutional Email -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-envelope"></i>
+                            Institutional Email Address
+                            <span class="required"></span>
+                        </label>
+                        <input type="email" id="teacherEmail" class="form-input" 
+                               placeholder="name@university.ac.ke or name@school.edu"
+                               onblur="validateInstitutionalEmail(this)">
+                        <div class="error-message" id="teacherEmailError">
+                            Please use your institutional email (school/university domain)
+                        </div>
+                        <p class="form-hint">
+                            <i class="fas fa-info-circle"></i> Personal emails (Gmail, Yahoo, etc.) are not accepted for teacher accounts
+                        </p>
+                    </div>
+                    
+                    <!-- Staff/Employee ID -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-id-card"></i>
+                            Staff/Employee ID
+                            <span class="required"></span>
+                        </label>
+                        <input type="text" id="staffId" class="form-input" 
+                               placeholder="e.g., STF-2024-001 or EMP-UNI-456">
+                        <div class="error-message" id="staffIdError">
+                            Please enter your official staff/employee ID
+                        </div>
+                    </div>
+                    
+                    <!-- Two-column layout -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg);">
+                        <!-- Full Name -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-user"></i>
+                                Full Name
+                                <span class="required"></span>
+                            </label>
+                            <input type="text" id="teacherName" class="form-input" 
+                                   placeholder="As on official records">
+                        </div>
+                        
+                        <!-- Role -->
+                        <div class="form-group">
+                            <label class="form-label">
+                                <i class="fas fa-user-tie"></i>
+                                Role
+                                <span class="required"></span>
+                            </label>
+                            <select id="teacherRole" class="form-input">
+                                <option value="">Select Role</option>
+                                <option value="lecturer">University Lecturer</option>
+                                <option value="professor">Professor</option>
+                                <option value="teacher">School Teacher</option>
+                                <option value="headteacher">Head Teacher</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- Institution Information -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-university"></i>
+                            Institution Name
+                            <span class="required"></span>
+                        </label>
+                        <input type="text" id="institutionName" class="form-input" 
+                               placeholder="Official name of your institution">
+                    </div>
+                    
+                    <!-- Subjects/Courses -->
+                    <div class="form-group">
+                        <label class="form-label">
+                            <i class="fas fa-book"></i>
+                            Subjects/Courses
+                            <span class="required"></span>
+                        </label>
+                        <textarea id="subjects" class="form-input" 
+                                  placeholder="List subjects or courses you teach (comma-separated)"
+                                  rows="3"></textarea>
+                    </div>
+                    
+                    <!-- Terms Agreement -->
+                    <div class="form-group">
+                        <label style="display: flex; align-items: flex-start; gap: var(--spacing-sm); cursor: pointer; padding: var(--spacing-sm); background: var(--bg-tertiary); border-radius: var(--radius);">
+                            <input type="checkbox" id="teacherTerms" style="margin-top: 3px; flex-shrink: 0;">
+                            <span style="font-size: 0.9rem; color: var(--text-secondary);">
+                                <strong style="color: var(--text-primary);">Verification Agreement:</strong> 
+                                I confirm that I am a legitimate educator at the institution mentioned above. 
+                                I understand that providing false information violates our terms and may result in permanent account suspension.
+                            </span>
+                        </label>
+                        <div class="error-message" id="termsError">
+                            You must agree to the verification agreement
+                        </div>
+                    </div>
+                    
+                    <!-- Submit Buttons -->
+                    <div style="display: flex; gap: var(--spacing-md); margin-top: var(--spacing-xl);">
+                        <button type="button" class="btn btn-secondary" onclick="closeTeacherRequestModal()" style="flex: 1;">
+                            <i class="fas fa-times"></i>
+                            Cancel
+                        </button>
+                        <button type="submit" class="btn btn-primary btn-shimmer" style="flex: 2;">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Verification Request
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    
+            
+                
+              
+
+    <script>
+        // ===== GLOBAL VARIABLES =====
+        let currentPage = 'home';
+        let currentUser = null;
+        let currentTheme = localStorage.getItem('theme') || 'light';
+        
+        // Initialize theme
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        // ===== APPLICATION INITIALIZATION =====
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('EduSmart Portal Loaded - Enhanced Student Registration');
+            
+            // Initialize teacher security system
+            if (!localStorage.getItem('teacherRequests')) {
+                localStorage.setItem('teacherRequests', JSON.stringify([]));
+            }
+            if (!localStorage.getItem('users')) {
+                localStorage.setItem('users', JSON.stringify([]));
+            }
+            if (!localStorage.getItem('credentials')) {
+                localStorage.setItem('credentials', JSON.stringify([]));
+            }
+            
+            // Initialize homepage
+            initHomepage();
+            
+            // Initialize login page
+            initLoginPage();
+            
+            // Initialize demo data
+            initializeDemoData();
+            
+            // Add scroll listener for header
+            window.addEventListener('scroll', handleScroll);
+        });
+
+        // ===== THEME MANAGEMENT =====
+        function toggleTheme() {
+            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            localStorage.setItem('theme', currentTheme);
+            
+            const icon = document.querySelector('.theme-toggle i');
+            icon.className = currentTheme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
+            
+            showNotification(`Switched to ${currentTheme} theme`, 'info');
+        }
+
+        // ===== PAGE MANAGEMENT =====
+        function showPage(page) {
+            // Hide all pages
+            document.querySelectorAll('.page-container').forEach(container => {
+                container.classList.remove('active');
+            });
+            
+            // Show selected page
+            const pageElement = document.getElementById(page + 'Page');
+            if (pageElement) {
+                setTimeout(() => {
+                    pageElement.classList.add('active');
+                }, 10);
+            }
+            
+            // Update navigation
+            updateNavigation(page);
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+            
+            currentPage = page;
+        }
+        
+        function updateNavigation(page) {
+            // Update active nav link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+                if (link.textContent.includes(page.charAt(0).toUpperCase() + page.slice(1))) {
+                    link.classList.add('active');
+                }
+            });
+        }
+        
+        function scrollToSection(sectionId) {
+            if (currentPage !== 'home') {
+                showPage('home');
+                setTimeout(() => {
+                    scrollToElement(sectionId);
+                }, 500);
+            } else {
+                scrollToElement(sectionId);
+            }
+        }
+        
+        function scrollToElement(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                const headerHeight = document.querySelector('.header').offsetHeight;
+                window.scrollTo({
+                    top: element.offsetTop - headerHeight - 20,
+                    behavior: 'smooth'
+                });
+            }
+        }
+        
+        function handleScroll() {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        }
+
+        // ===== EDUCATION LEVEL FUNCTIONS =====
+        function selectEducationLevel(level, element) {
+            // Remove selected class from all options
+            document.querySelectorAll('.education-level-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // Set the hidden input value
+            document.getElementById('educationLevel').value = level;
+            
+            // Show/hide additional fields based on level
+            const gradeSelection = document.getElementById('gradeSelection');
+            const courseSelection = document.getElementById('courseSelection');
+            const gradeSelect = document.getElementById('gradeLevel');
+            
+            // Clear previous selections
+            gradeSelect.value = '';
+            document.getElementById('universityCourse').value = '';
+            document.getElementById('yearOfStudy').value = '';
+            
+            if (level === 'primary') {
+                gradeSelection.style.display = 'block';
+                courseSelection.style.display = 'none';
+                
+            } else if (level === 'secondary') {
+                // Secondary is just "Secondary" - no additional fields needed
+                gradeSelection.style.display = 'none';
+                courseSelection.style.display = 'none';
+                
+            } else if (level === 'university') {
+                gradeSelection.style.display = 'none';
+                courseSelection.style.display = 'block';
+            }
+        }
+        
+        // ===== DEMO LOGIN FUNCTIONS =====
+        
+        function demoLogin(role) {
+            let email, password, name;
+            
+            if (role === 'student') {
+                email = 'student@demo.com';
+                password = 'password123';
+                name = 'Demo Student';
+            } else if (role === 'teacher') {
+                email = 'teacher@university.ac.ke';
+                password = 'password123';
+                name = 'Demo Teacher';
+            } else if (role === 'admin') {
+                email = 'admin@edusmart.com';
+                password = 'password123';
+                name = 'Demo Admin';
+            }
+            
+            // Fill login form
+            document.getElementById('username').value = email;
+            document.getElementById('password').value = password;
+            document.getElementById('userRole').value = role;
+            
+            // Show loading
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.querySelector('span').textContent = 'Logging in...';
+            document.getElementById('submitLoader').style.display = 'block';
+            
+            // Simulate login
+            setTimeout(() => {
+                showNotification(`Demo ${role} login successful!`, 'success');
+                
+                submitBtn.disabled = false;
+                submitBtn.querySelector('span').textContent = 'Sign In';
+                document.getElementById('submitLoader').style.display = 'none';
+                
+            }, 1000);
+        }
+        
+        function demoStudentLogin(educationLevel) {
+            const demoStudents = {
+                'primary': { 
+                    email: 'primary@demo.com', 
+                    name: 'Demo Primary Student',
+                    educationLevel: 'primary',
+                    grade: 'grade-8',
+                    details: 'Primary 8 Student'
+                },
+                'secondary': { 
+                    email: 'secondary@demo.com', 
+                    name: 'Demo Secondary Student',
+                    educationLevel: 'secondary',
+                    details: 'Secondary Student'
+                },
+                'university': { 
+                    email: 'university@demo.com', 
+                    name: 'Demo University Student',
+                    educationLevel: 'university',
+                    course: 'computer-science',
+                    year: '3',
+                    details: '3rd Year Computer Science'
+                }
+            };
+            
+            const student = demoStudents[educationLevel] || demoStudents.secondary;
+            
+            // Fill login form
+            document.getElementById('username').value = student.email;
+            document.getElementById('password').value = 'password123';
+            document.getElementById('userRole').value = 'student';
+            
+            // Show loading
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.querySelector('span').textContent = 'Logging in...';
+            document.getElementById('submitLoader').style.display = 'block';
+            
+            // Simulate login
+            setTimeout(() => {
+                showNotification(`Demo ${student.details} login successful!`, 'success');
+                
+                submitBtn.disabled = false;
+                submitBtn.querySelector('span').textContent = 'Sign In';
+                document.getElementById('submitLoader').style.display = 'none';
+                
+            }, 1000);
+        }
+        
+        function showAdminPanel() {
+            loadAdminStats();
+            document.getElementById('adminPanelModal').style.display = 'flex';
+        }
+        
+        function closeAdminPanel() {
+            document.getElementById('adminPanelModal').style.display = 'none';
+        }
+        
+        function loadAdminStats() {
+            const teacherRequests = JSON.parse(localStorage.getItem('teacherRequests') || '[]');
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            
+            // Count pending requests
+            const pendingCount = teacherRequests.filter(req => req.status === 'pending').length;
+            const approvedCount = teacherRequests.filter(req => req.status === 'approved').length;
+            const studentCount = users.filter(user => user.role === 'student').length;
+            
+            // Update stats
+            document.getElementById('pendingRequestsCount').textContent = pendingCount;
+            document.getElementById('approvedTeachersCount').textContent = approvedCount;
+            document.getElementById('totalStudentsCount').textContent = studentCount;
+            
+            // Load pending requests
+            const pendingRequestsList = document.getElementById('pendingRequestsList');
+            pendingRequestsList.innerHTML = '';
+            
+            const pendingRequests = teacherRequests.filter(req => req.status === 'pending');
+            
+            if (pendingRequests.length === 0) {
+                pendingRequestsList.innerHTML = `
+                    <div style="text-align: center; padding: var(--spacing-xl); color: var(--text-secondary);">
+                        <i class="fas fa-check-circle" style="font-size: 3rem; margin-bottom: var(--spacing-md); opacity: 0.5;"></i>
+                        <h4 style="margin-bottom: var(--spacing-sm);">No Pending Requests</h4>
+                        <p>All teacher requests have been processed.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            pendingRequests.forEach((request, index) => {
+                const requestElement = document.createElement('div');
+                requestElement.className = 'feature-card';
+                requestElement.style.marginBottom = '15px';
+                requestElement.style.cursor = 'pointer';
+                requestElement.onclick = () => showRequestDetails(request);
+                
+                requestElement.innerHTML = `
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <h4 style="margin: 0 0 8px 0;">${request.name}</h4>
+                            <p style="color: var(--text-secondary); margin: 0 0 8px 0; font-size: 0.9rem;">
+                                ${request.institutionName} • ${request.role}
+                            </p>
+                            <div style="display: flex; gap: 10px;">
+                                <span style="font-size: 0.75rem; color: var(--text-tertiary);">
+                                    <i class="fas fa-envelope"></i> ${request.email}
+                                </span>
+                                <span style="font-size: 0.75rem; color: var(--text-tertiary);">
+                                    <i class="fas fa-id-card"></i> ${request.staffId}
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <span style="background: var(--warning); color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600;">
+                                PENDING
+                            </span>
+                        </div>
+                    </div>
+                `;
+                
+                pendingRequestsList.appendChild(requestElement);
+            });
+        }
+        
+        function showRequestDetails(request) {
+            const modalHTML = `
+                <div class="modal-overlay" style="display: flex;">
+                    <div class="modal-content" style="max-width: 600px;">
+                        <div class="modal-header">
+                            <h3>Request Details</h3>
+                            <button class="modal-close" onclick="this.parentElement.parentElement.parentElement.remove()">×</button>
+                        </div>
+                        <div style="margin-bottom: var(--spacing-xl);">
+                            <div style="margin-bottom: var(--spacing-lg);">
+                                <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-sm);">Applicant Information</h4>
+                                <div style="background: var(--bg-tertiary); padding: var(--spacing-md); border-radius: var(--radius);">
+                                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-md);">
+                                        <div>
+                                            <strong>Full Name:</strong>
+                                            <p>${request.name}</p>
+                                        </div>
+                                        <div>
+                                            <strong>Email:</strong>
+                                            <p>${request.email}</p>
+                                        </div>
+                                        <div>
+                                            <strong>Staff ID:</strong>
+                                            <p>${request.staffId}</p>
+                                        </div>
+                                        <div>
+                                            <strong>Role:</strong>
+                                            <p>${request.role}</p>
+                                        </div>
+                                        <div>
+                                            <strong>Institution:</strong>
+                                            <p>${request.institutionName}</p>
+                                        </div>
+                                        <div>
+                                            <strong>Submitted:</strong>
+                                            <p>${new Date(request.timestamp).toLocaleDateString()}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div style="margin-bottom: var(--spacing-lg);">
+                                <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-sm);">Subjects to Teach</h4>
+                                <div style="background: var(--bg-tertiary); padding: var(--spacing-md); border-radius: var(--radius);">
+                                    <p>${request.subjects}</p>
+                                </div>
+                            </div>
+                            
+                            ${request.additionalInfo ? `
+                                <div style="margin-bottom: var(--spacing-lg);">
+                                    <h4 style="color: var(--text-primary); margin-bottom: var(--spacing-sm);">Additional Information</h4>
+                                    <div style="background: var(--bg-tertiary); padding: var(--spacing-md); border-radius: var(--radius);">
+                                        <p>${request.additionalInfo}</p>
+                                    </div>
+                                </div>
+                            ` : ''}
+                            
+                            <div style="display: flex; gap: var(--spacing-md);">
+                                <button class="btn btn-success" style="flex: 1;" onclick="approveRequest('${request.requestId}')">
+                                    <i class="fas fa-check-circle"></i>
+                                    Approve Request
+                                </button>
+                                <button class="btn btn-danger" style="flex: 1;" onclick="rejectRequest('${request.requestId}')">
+                                    <i class="fas fa-times-circle"></i>
+                                    Reject Request
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            const modal = document.createElement('div');
+            modal.innerHTML = modalHTML;
+            document.body.appendChild(modal);
+        }
+        
+        function approveRequest(requestId) {
+            const teacherRequests = JSON.parse(localStorage.getItem('teacherRequests') || '[]');
+            const requestIndex = teacherRequests.findIndex(req => req.requestId === requestId);
+            
+            if (requestIndex !== -1) {
+                teacherRequests[requestIndex].status = 'approved';
+                teacherRequests[requestIndex].approvedAt = new Date().toISOString();
+                teacherRequests[requestIndex].approvedBy = 'Admin';
+                localStorage.setItem('teacherRequests', JSON.stringify(teacherRequests));
+                
+                // Update user status
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                const userIndex = users.findIndex(user => user.email === teacherRequests[requestIndex].email);
+                if (userIndex !== -1) {
+                    users[userIndex].role = 'teacher';
+                    users[userIndex].status = 'approved';
+                    localStorage.setItem('users', JSON.stringify(users));
+                }
+                
+                showNotification(`Request ${requestId} approved successfully!`, 'success');
+                loadAdminStats();
+                
+                // Close modal
+                document.querySelectorAll('.modal-overlay').forEach(modal => {
+                    if (modal !== document.getElementById('adminPanelModal')) {
+                        modal.remove();
+                    }
+                });
+            }
+        }
+        
+        function rejectRequest(requestId) {
+            const teacherRequests = JSON.parse(localStorage.getItem('teacherRequests') || '[]');
+            const requestIndex = teacherRequests.findIndex(req => req.requestId === requestId);
+            
+            if (requestIndex !== -1) {
+                teacherRequests[requestIndex].status = 'rejected';
+                teacherRequests[requestIndex].rejectedAt = new Date().toISOString();
+                teacherRequests[requestIndex].rejectedBy = 'Admin';
+                localStorage.setItem('teacherRequests', JSON.stringify(teacherRequests));
+                
+                showNotification(`Request ${requestId} rejected.`, 'warning');
+                loadAdminStats();
+                
+                // Close modal
+                document.querySelectorAll('.modal-overlay').forEach(modal => {
+                    if (modal !== document.getElementById('adminPanelModal')) {
+                        modal.remove();
+                    }
+                });
+            }
+        }
+        
+        function clearAllData() {
+            if (confirm('Are you sure you want to clear all demo data? This action cannot be undone.')) {
+                localStorage.removeItem('teacherRequests');
+                localStorage.removeItem('users');
+                localStorage.removeItem('credentials');
+                
+                // Reinitialize
+                localStorage.setItem('teacherRequests', JSON.stringify([]));
+                localStorage.setItem('users', JSON.stringify([]));
+                localStorage.setItem('credentials', JSON.stringify([]));
+                
+                initializeDemoData();
+                loadAdminStats();
+                
+                showNotification('All demo data has been cleared and reinitialized.', 'success');
+            }
+        }
+
+        // ===== HOMEPAGE FUNCTIONALITY =====
+        function initHomepage() {
+            // Add hover effects to feature cards
+            const featureCards = document.querySelectorAll('.feature-card');
+            featureCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px) scale(1.02)';
+                });
+                
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = 'translateY(0) scale(1)';
+                });
+            });
+        }
+
+        // ===== LOGIN PAGE FUNCTIONALITY =====
+        function initLoginPage() {
+            const loginForm = document.getElementById('loginForm');
+            const usernameInput = document.getElementById('username');
+            const passwordInput = document.getElementById('password');
+            const userRoleSelect = document.getElementById('userRole');
+            const togglePasswordBtn = document.getElementById('togglePassword');
+            
+            // Toggle password visibility
+            if (togglePasswordBtn) {
+                togglePasswordBtn.addEventListener('click', function() {
+                    const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                    passwordInput.setAttribute('type', type);
+                    this.innerHTML = type === 'password' ? '<i class="far fa-eye"></i>' : '<i class="far fa-eye-slash"></i>';
+                });
+            }
+            
+            // Form submission
+            if (loginForm) {
+                loginForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const email = usernameInput.value.trim();
+                    const password = passwordInput.value;
+                    const role = userRoleSelect.value;
+                    
+                    // Validate
+                    if (!email || !validateEmail(email)) {
+                        showNotification('Please enter a valid email address', 'error');
+                        return;
+                    }
+                    
+                    if (!password || password.length < 8) {
+                        showNotification('Password must be at least 8 characters', 'error');
+                        return;
+                    }
+                    
+                    if (!role) {
+                        showNotification('Please select your role', 'error');
+                        return;
+                    }
+                    
+                    // Show loading
+                    const submitBtn = document.getElementById('submitBtn');
+                    submitBtn.disabled = true;
+                    submitBtn.querySelector('span').textContent = 'Authenticating...';
+                    document.getElementById('submitLoader').style.display = 'block';
+                    
+                    // Validate login
+                    setTimeout(() => {
+                        const validation = validateLogin(role, email, password);
+                        
+                        if (!validation.valid) {
+                            showNotification(validation.message, 'error');
+                            submitBtn.disabled = false;
+                            submitBtn.querySelector('span').textContent = 'Sign In';
+                            document.getElementById('submitLoader').style.display = 'none';
+                            return;
+                        }
+                        
+                        showNotification('Login successful!', 'success');
+                        
+                        submitBtn.disabled = false;
+                        submitBtn.querySelector('span').textContent = 'Sign In';
+                        document.getElementById('submitLoader').style.display = 'none';
+                        
+                    }, 1500);
+                });
+            }
+        }
+
+        // ===== TEACHER ACCOUNT SECURITY FUNCTIONS =====
+        function showSignupOptions() {
+            document.getElementById('signupOptionsModal').style.display = 'flex';
+        }
+        
+        function closeSignupModal() {
+            document.getElementById('signupOptionsModal').style.display = 'none';
+        }
+        
+        function showStudentRegistration() {
+            closeSignupModal();
+            document.getElementById('studentRegistrationModal').style.display = 'flex';
+        }
+        
+        function closeStudentRegistrationModal() {
+            document.getElementById('studentRegistrationModal').style.display = 'none';
+            // Reset the form
+            document.getElementById('studentRegistrationForm').reset();
+            document.querySelectorAll('.education-level-option').forEach(opt => {
+                opt.classList.remove('selected');
+            });
+            document.getElementById('gradeSelection').style.display = 'none';
+            document.getElementById('courseSelection').style.display = 'none';
+        }
+        
+        function showTeacherRequestForm() {
+            closeSignupModal();
+            document.getElementById('teacherRequestModal').style.display = 'flex';
+        }
+        
+        function closeTeacherRequestModal() {
+            document.getElementById('teacherRequestModal').style.display = 'none';
+        }
+        
+        function validateInstitutionalEmail(input) {
+            const email = input.value.trim();
+            const errorElement = document.getElementById('teacherEmailError');
+            
+            // Email regex
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                showError(errorElement, 'Please enter a valid email address');
+                input.classList.add('error');
+                return false;
+            }
+            
+            // Accepted institutional domains
+            const acceptedDomains = [
+                '.edu',
+                '.ac.ke',
+                '.ac.ug',
+                '.ac.tz',
+                '.ac.rw',
+                '.ac.bi',
+                '.ac.ss',
+                '.school',
+                '.college',
+                '.university'
+            ];
+            
+            // Check if email contains any accepted domain
+            const isValid = acceptedDomains.some(domain => email.toLowerCase().includes(domain));
+            
+            if (!isValid) {
+                showError(errorElement, 'Please use your institutional email (school/university domain)');
+                input.classList.add('error');
+                return false;
+            }
+            
+            // Personal email domains to block
+            const personalDomains = [
+                'gmail.com', 'yahoo.com', 'hotmail.com', 'outlook.com', 
+                'icloud.com', 'yahoo.co.uk', 'live.com', 'aol.com',
+                'protonmail.com', 'zoho.com', 'mail.com', 'yandex.com'
+            ];
+            
+            const domain = email.split('@')[1]?.toLowerCase();
+            if (domain && personalDomains.includes(domain)) {
+                showError(errorElement, 'Personal email addresses are not accepted for teacher accounts');
+                input.classList.add('error');
+                return false;
+            }
+            
+            hideError(errorElement);
+            input.classList.remove('error');
+            return true;
+        }
+        
+        function submitTeacherRequest() {
+            const formData = {
+                email: document.getElementById('teacherEmail').value.trim(),
+                staffId: document.getElementById('staffId').value.trim(),
+                name: document.getElementById('teacherName').value.trim(),
+                institutionName: document.getElementById('institutionName').value.trim(),
+                role: document.getElementById('teacherRole').value,
+                subjects: document.getElementById('subjects').value.trim(),
+                additionalInfo: document.getElementById('additionalInfo')?.value.trim() || '',
+                termsAccepted: document.getElementById('teacherTerms').checked,
+                timestamp: new Date().toISOString(),
+                status: 'pending',
+                requestId: 'TCH-' + Date.now() + '-' + Math.random().toString(36).substr(2, 5).toUpperCase()
+            };
+            
+            // Validate
+            const errors = [];
+            if (!formData.email || !validateInstitutionalEmail(document.getElementById('teacherEmail'))) {
+                errors.push('Please enter a valid institutional email');
+            }
+            if (!formData.staffId) errors.push('Please enter your staff ID');
+            if (!formData.name) errors.push('Please enter your full name');
+            if (!formData.institutionName) errors.push('Please enter institution name');
+            if (!formData.role) errors.push('Please select your role');
+            if (!formData.subjects) errors.push('Please list subjects/courses');
+            if (!formData.termsAccepted) errors.push('You must agree to the terms');
+            
+            if (errors.length > 0) {
+                showNotification(errors[0], 'error');
+                return;
+            }
+            
+            // Check for existing pending request
+            const existingRequests = JSON.parse(localStorage.getItem('teacherRequests') || '[]');
+            const existingRequest = existingRequests.find(req => req.email === formData.email && req.status === 'pending');
+            
+            if (existingRequest) {
+                showNotification(`You already have a pending request (ID: ${existingRequest.requestId})`, 'warning');
+                closeTeacherRequestModal();
+                return;
+            }
+            
+            // Submit
+            existingRequests.push(formData);
+            localStorage.setItem('teacherRequests', JSON.stringify(existingRequests));
+            
+            // Create pending user
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            users.push({
+                email: formData.email,
+                name: formData.name,
+                role: 'teacher_pending',
+                status: 'pending',
+                requestId: formData.requestId,
+                createdAt: new Date().toISOString()
+            });
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Save credentials
+            const credentials = JSON.parse(localStorage.getItem('credentials') || '[]');
+            const password = generatePassword();
+            credentials.push({
+                email: formData.email,
+                password: password,
+                role: 'teacher'
+            });
+            localStorage.setItem('credentials', JSON.stringify(credentials));
+            
+            showNotification(
+                `Request submitted! Your request ID is: ${formData.requestId}. An email with temporary password has been sent.`,
+                'success'
+            );
+            
+            // Simulate email
+            console.log(`Temporary password for ${formData.email}: ${password}`);
+            
+            closeTeacherRequestModal();
+            document.getElementById('teacherRequestForm').reset();
+        }
+        
+        // ===== ENHANCED STUDENT REGISTRATION =====
+        function submitStudentRegistration() {
+            const formData = {
+                email: document.getElementById('studentEmail').value.trim(),
+                name: document.getElementById('studentName').value.trim(),
+                password: document.getElementById('studentPassword').value,
+                educationLevel: document.getElementById('educationLevel').value,
+                country: document.getElementById('country').value,
+                termsAccepted: document.getElementById('studentTerms').checked
+            };
+            
+            // Get additional fields based on education level
+            if (formData.educationLevel === 'primary') {
+                formData.grade = document.getElementById('gradeLevel').value;
+                if (!formData.grade) {
+                    showNotification('Please select your grade level', 'error');
+                    return;
+                }
+            } else if (formData.educationLevel === 'secondary') {
+                // Secondary is just "Secondary" - no additional fields
+                formData.description = 'Secondary Student';
+            } else if (formData.educationLevel === 'university') {
+                formData.course = document.getElementById('universityCourse').value;
+                formData.yearOfStudy = document.getElementById('yearOfStudy').value;
+                
+                if (!formData.course) {
+                    showNotification('Please select your course/program', 'error');
+                    return;
+                }
+                if (!formData.yearOfStudy) {
+                    showNotification('Please select your year of study', 'error');
+                    return;
+                }
+            }
+            
+            // Validate
+            const errors = [];
+            if (!formData.email || !validateEmail(formData.email)) {
+                errors.push('Please enter a valid email');
+            }
+            if (!formData.name) errors.push('Please enter your name');
+            if (!formData.password || formData.password.length < 8) {
+                errors.push('Password must be at least 8 characters');
+            }
+            if (!formData.educationLevel) errors.push('Please select education level');
+            if (!formData.country) errors.push('Please select country');
+            if (!formData.termsAccepted) errors.push('You must agree to the terms');
+            
+            if (errors.length > 0) {
+                showNotification(errors[0], 'error');
+                return;
+            }
+            
+            // Check if user exists
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            if (users.some(user => user.email === formData.email)) {
+                showNotification('An account with this email already exists', 'error');
+                return;
+            }
+            
+            // Create user with education details
+            const newUser = {
+                email: formData.email,
+                name: formData.name,
+                role: 'student',
+                educationLevel: formData.educationLevel,
+                country: formData.country,
+                status: 'active',
+                createdAt: new Date().toISOString()
+            };
+            
+            // Add education level specific details
+            if (formData.educationLevel === 'primary') {
+                newUser.grade = formData.grade;
+                newUser.description = `Primary ${formData.grade.split('-')[1]} Student`;
+            } else if (formData.educationLevel === 'secondary') {
+                newUser.description = 'Secondary Student';
+            } else if (formData.educationLevel === 'university') {
+                newUser.course = formData.course;
+                newUser.yearOfStudy = formData.yearOfStudy;
+                newUser.description = `Year ${formData.yearOfStudy} ${getCourseName(formData.course)} Student`;
+            }
+            
+            users.push(newUser);
+            localStorage.setItem('users', JSON.stringify(users));
+            
+            // Save credentials
+            const credentials = JSON.parse(localStorage.getItem('credentials') || '[]');
+            credentials.push({
+                email: formData.email,
+                password: formData.password,
+                role: 'student'
+            });
+            localStorage.setItem('credentials', JSON.stringify(credentials));
+            
+            showNotification('Student account created successfully!', 'success');
+            
+            closeStudentRegistrationModal();
+            document.getElementById('studentRegistrationForm').reset();
+            
+            // Auto fill login
+            setTimeout(() => {
+                document.getElementById('username').value = formData.email;
+                document.getElementById('userRole').value = 'student';
+            }, 1000);
+        }
+        
+        function getCourseName(courseCode) {
+            const courses = {
+                'computer-science': 'Computer Science',
+                'engineering': 'Engineering',
+                'medicine': 'Medicine',
+                'law': 'Law',
+                'business': 'Business Administration',
+                'education': 'Education',
+                'agriculture': 'Agriculture',
+                'architecture': 'Architecture',
+                'nursing': 'Nursing',
+                'pharmacy': 'Pharmacy'
+            };
+            return courses[courseCode] || courseCode;
+        }
+
+        // ===== LOGIN VALIDATION =====
+        function validateLogin(role, email, password) {
+            // Check credentials
+            const credentials = JSON.parse(localStorage.getItem('credentials') || '[]');
+            const credential = credentials.find(cred => cred.email === email && cred.password === password);
+            
+            if (!credential) {
+                return {
+                    valid: false,
+                    message: 'Invalid email or password'
+                };
+            }
+            
+            // Check user data
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const userData = users.find(user => user.email === email);
+            
+            if (!userData) {
+                return {
+                    valid: false,
+                    message: 'User account not found'
+                };
+            }
+            
+            // Teacher-specific validation
+            if (role === 'teacher') {
+                const teacherRequests = JSON.parse(localStorage.getItem('teacherRequests') || '[]');
+                const teacherRequest = teacherRequests.find(req => req.email === email);
+                
+                if (!teacherRequest) {
+                    return {
+                        valid: false,
+                        message: 'No teacher account found. Please request access first.'
+                    };
+                }
+                
+                if (teacherRequest.status === 'pending') {
+                    return {
+                        valid: false,
+                        message: 'Your account is pending admin approval.'
+                    };
+                }
+                
+                if (teacherRequest.status === 'rejected') {
+                    return {
+                        valid: false,
+                        message: 'Your account request was rejected. Contact admin for details.'
+                    };
+                }
+                
+                if (teacherRequest.status === 'approved') {
+                    return {
+                        valid: true,
+                        message: 'Login successful!',
+                        userData: userData
+                    };
+                }
+            }
+            
+            // Student or other validation
+            if (userData.role === 'teacher_pending') {
+                return {
+                    valid: false,
+                    message: 'Your teacher account is pending approval.'
+                };
+            }
+            
+            if (role !== userData.role) {
+                return {
+                    valid: false,
+                    message: `Please login as ${userData.role}`
+                };
+            }
+            
+            return {
+                valid: true,
+                message: 'Login successful!',
+                userData: userData
+            };
+        }
+
+        // ===== SIMULATE ADMIN APPROVAL =====
+        function simulateAdminApproval() {
+            const teacherRequests = JSON.parse(localStorage.getItem('teacherRequests') || '[]');
+            const pendingRequests = teacherRequests.filter(req => req.status === 'pending');
+            
+            if (pendingRequests.length === 0) {
+                showNotification('No pending teacher requests to approve', 'info');
+                return;
+            }
+            
+            // Approve first pending request
+            const requestToApprove = pendingRequests[0];
+            requestToApprove.status = 'approved';
+            requestToApprove.approvedAt = new Date().toISOString();
+            requestToApprove.approvedBy = 'System Admin';
+            
+            const requestIndex = teacherRequests.findIndex(req => req.requestId === requestToApprove.requestId);
+            if (requestIndex !== -1) {
+                teacherRequests[requestIndex] = requestToApprove;
+                localStorage.setItem('teacherRequests', JSON.stringify(teacherRequests));
+            }
+            
+            // Update user
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const userIndex = users.findIndex(user => user.email === requestToApprove.email);
+            if (userIndex !== -1) {
+                users[userIndex].role = 'teacher';
+                users[userIndex].status = 'approved';
+                localStorage.setItem('users', JSON.stringify(users));
+            }
+            
+            showNotification(`Approved teacher request for ${requestToApprove.name}`, 'success');
+            
+            // Update admin panel if open
+            if (document.getElementById('adminPanelModal').style.display === 'flex') {
+                loadAdminStats();
+            }
+        }
+
+        // ===== INITIALIZE DEMO DATA =====
+        function initializeDemoData() {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            const credentials = JSON.parse(localStorage.getItem('credentials') || '[]');
+            const teacherRequests = JSON.parse(localStorage.getItem('teacherRequests') || '[]');
+            
+            // Demo students for different levels
+            const demoStudents = [
+                {
+                    email: 'primary@demo.com',
+                    name: 'Demo Primary Student',
+                    role: 'student',
+                    educationLevel: 'primary',
+                    grade: 'grade-8',
+                    description: 'Primary 8 Student',
+                    country: 'KE',
+                    status: 'active',
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    email: 'secondary@demo.com',
+                    name: 'Demo Secondary Student',
+                    role: 'student',
+                    educationLevel: 'secondary',
+                    description: 'Secondary Student',
+                    country: 'UG',
+                    status: 'active',
+                    createdAt: new Date().toISOString()
+                },
+                {
+                    email: 'university@demo.com',
+                    name: 'Demo University Student',
+                    role: 'student',
+                    educationLevel: 'university',
+                    course: 'computer-science',
+                    yearOfStudy: '3',
+                    description: 'Year 3 Computer Science Student',
+                    country: 'RW',
+                    status: 'active',
+                    createdAt: new Date().toISOString()
+                }
+            ];
+            
+            demoStudents.forEach(student => {
+                if (!users.some(u => u.email === student.email)) {
+                    users.push(student);
+                    credentials.push({
+                        email: student.email,
+                        password: 'password123',
+                        role: 'student'
+                    });
+                }
+            });
+            
+            // Demo teacher
+            if (!users.some(user => user.email === 'teacher@university.ac.ke')) {
+                users.push({
+                    email: 'teacher@university.ac.ke',
+                    name: 'Demo Teacher',
+                    role: 'teacher',
+                    institution: 'Demo University',
+                    subjects: 'Mathematics, Physics',
+                    staffId: 'STF-DEMO-001',
+                    status: 'approved',
+                    createdAt: new Date().toISOString()
+                });
+                
+                credentials.push({
+                    email: 'teacher@university.ac.ke',
+                    password: 'password123',
+                    role: 'teacher'
+                });
+                
+                teacherRequests.push({
+                    email: 'teacher@university.ac.ke',
+                    staffId: 'STF-DEMO-001',
+                    name: 'Demo Teacher',
+                    institutionName: 'Demo University',
+                    role: 'lecturer',
+                    subjects: 'Mathematics, Physics',
+                    timestamp: new Date().toISOString(),
+                    status: 'approved',
+                    requestId: 'TCH-DEMO-001',
+                    approvedAt: new Date().toISOString(),
+                    approvedBy: 'System'
+                });
+            }
+            
+            // Demo admin
+            if (!users.some(user => user.email === 'admin@edusmart.com')) {
+                users.push({
+                    email: 'admin@edusmart.com',
+                    name: 'Demo Admin',
+                    role: 'admin',
+                    status: 'active',
+                    createdAt: new Date().toISOString()
+                });
+                
+                credentials.push({
+                    email: 'admin@edusmart.com',
+                    password: 'password123',
+                    role: 'admin'
+                });
+            }
+            
+            localStorage.setItem('users', JSON.stringify(users));
+            localStorage.setItem('credentials', JSON.stringify(credentials));
+            localStorage.setItem('teacherRequests', JSON.stringify(teacherRequests));
+        }
+
+        // ===== UTILITY FUNCTIONS =====
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        function generatePassword() {
+            return Math.random().toString(36).slice(-8);
+        }
+        
+        function showError(element, message) {
+            if (element) {
+                element.textContent = message;
+                element.classList.add('show');
+            }
+        }
+        
+        function hideError(element) {
+            if (element) {
+                element.classList.remove('show');
+            }
+        }
+        
+        function showNotification(message, type = 'info') {
+            // Remove existing notifications
+            document.querySelectorAll('.notification-toast').forEach(toast => toast.remove());
+            
+            // Create notification
+            const toast = document.createElement('div');
+            toast.className = `notification-toast ${type}`;
+            toast.innerHTML = `
+                <div class="notification-icon">
+                    ${type === 'success' ? '<i class="fas fa-check-circle"></i>' :
+                      type === 'error' ? '<i class="fas fa-exclamation-circle"></i>' :
+                      type === 'warning' ? '<i class="fas fa-exclamation-triangle"></i>' :
+                      '<i class="fas fa-info-circle"></i>'}
+                </div>
+                <div>${message}</div>
+            `;
+            
+            document.body.appendChild(toast);
+            
+            // Show
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    if (toast.parentNode) {
+                        toast.parentNode.removeChild(toast);
+                    }
+                }, 300);
+            }, 5000);
+        }
+        
+        function showForgotPassword() {
+            showNotification('Password reset feature coming soon!', 'info');
+        }
+
+        // Close modals when clicking outside
+        document.addEventListener('click', function(event) {
+            // Close modals when clicking outside
+            const modals = document.querySelectorAll('.modal-overlay');
+            modals.forEach(modal => {
+                if (modal === event.target) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+
+        // Initialize student registration form
+        const studentForm = document.getElementById('studentRegistrationForm');
+        if (studentForm) {
+            studentForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitStudentRegistration();
+            });
+        }
+
+        // Initialize teacher request form
+        const teacherForm = document.getElementById('teacherRequestForm');
+        if (teacherForm) {
+            teacherForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                submitTeacherRequest();
+            });
+        }
+    </script>
+</body>
+</html>
